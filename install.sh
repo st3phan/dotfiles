@@ -10,15 +10,15 @@ run_install_dotfiles() {
 
     initial_setup
     ask_details
-    sync_icloud
-    update_system
+    #update_system
 
     install_brew
     install_node
 
     install_brew_apps
     install_cask_apps
-
+    
+    sudo_askpass_del
     killall caffeinate # computer can go back to sleep
 }
 
