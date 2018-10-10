@@ -1,10 +1,12 @@
 #!/bin/bash
 
 sudo_askpass_set() {
-   until sudo --non-interactive true do # if password is wrong, keep asking
+
+
+   until sudo --non-interactive true 2> /dev/null; do # if password is wrong, keep asking
         read -s -t 30 -p "Enter your sudo password: " pw
         echo
-        sudo --stdin --validate <<< "${pw}"
+        sudo --stdin --validate <<< "${pw}" 2> /dev/null
     done
     
     /usr/bin/security add-generic-password -U -l scripting-account-pw -a $USER -s "scripting: $USER" -w $pw

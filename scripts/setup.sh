@@ -4,9 +4,9 @@ bold_echo() {
 }
 
  # helper function for when the following command needs `sudo` active but shouldn't be called with it
-renew_sudo() {
-    sudo --stdin --validate <<< "${sudo_password}" 2> /dev/null
-}
+#renew_sudo() {
+ #   sudo --stdin --validate <<< "${sudo_password}" 2> /dev/null
+#}
 
 initial_setup() {
     export PATH="/usr/local/bin:${PATH}"
