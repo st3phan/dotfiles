@@ -20,7 +20,7 @@ ask_details() {
     clear
 
    until sudo --non-interactive true 2> /dev/null; do # if password is wrong, keep asking
-        read -s -t 30 - p "Enter your sudo password: " pw
+        read -s -t 30 -p "Enter your sudo password: " pw
         echo
         sudo --stdin --validate <<< "${pw}" 2> /dev/null
     done
