@@ -18,14 +18,7 @@ initial_setup() {
 ask_details() {
     # ask for the administrator password upfront, for commands that require `sudo`
     clear
-
-   until sudo --non-interactive true 2> /dev/null; do # if password is wrong, keep asking
-        read -s -t 30 -p "Enter your sudo password: " pw
-        echo
-        sudo --stdin --validate <<< "${pw}" 2> /dev/null
-    done
-    
-    /usr/bin/security add-generic-password -U -l scripting-account-pw -a $USER -s "scripting: $USER" -w $pw
+    sudo_askpass_set
 
     clear
         bold_echo 'Your Mac App Store details to install apps:'
