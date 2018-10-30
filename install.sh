@@ -8,17 +8,21 @@ run_install_dotfiles() {
 
     clear
 
+    # Setup
     initial_setup
     ask_details
-    #update_system
+    update_system
 
+    # Environment
     install_brew
     install_node
 
+    # Apps
     install_brew_apps
     install_cask_apps
+    install_mas_apps
     
-    sudo_askpass_del
+    #sudo_askpass_del
     killall caffeinate # computer can go back to sleep
 }
 

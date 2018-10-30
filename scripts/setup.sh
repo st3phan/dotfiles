@@ -17,8 +17,8 @@ initial_setup() {
 
 ask_details() {
     # ask for the administrator password upfront, for commands that require `sudo`
-    clear
-    sudo_askpass_set
+    # clear
+    # sudo_askpass_set
 
     clear
         bold_echo 'Your Mac App Store details to install apps:'
