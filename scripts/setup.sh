@@ -23,7 +23,7 @@ ask_details() {
     clear
         bold_echo 'Your Mac App Store details to install apps:'
         read -p 'MAS email: ' mas_email
-        read -s -p 'MAS password (will not be echoed): ' mas_password
+        read -p 'MAS password (will not be echoed): ' mas_password
 
     clear
         bold_echo 'Some details to be used when configuring git:'
