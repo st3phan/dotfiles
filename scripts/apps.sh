@@ -1,6 +1,6 @@
 install_brew_apps() {
     brew install git
-    brew install mass
+    brew install mas
 }
 
 install_cask_apps() {
