@@ -11,7 +11,7 @@ install_cask_apps() {
     brew cask install beyond-compare
     brew cask install carbon-copy-cloner
     brew cask install charles
-    brew cask install citrix-receiver
+    brew cask install citrix-workspace
     brew cask install cryptobridge
     brew cask install docker
     brew cask install dropbox
@@ -56,10 +56,85 @@ install_cask_apps() {
     brew cask install font-menlo-for-powerline
 }
 
+function mas_login_applescript() {
+    
+    if [[ "$MAS_APPLE_ID" == "" ]]
+    then
+        echo ''
+        MAS_APPLE_ID="    "
+        read -r -p "please enter apple id to log into appstore: " MAS_APPLE_ID
+        #echo $MAS_APPLE_ID
+    else
+        :
+    fi
+    
+    if [[ "$MAS_APPSTORE_PASSWORD" == "" ]]
+    then
+        echo ''
+        echo "please enter appstore password..."
+        MAS_APPSTORE_PASSWORD="    "
+    
+        # ask for password twice
+        #while [[ $MAS_APPSTORE_PASSWORD != $MAS_APPSTORE_PASSWORD2 ]] || [[ $MAS_APPSTORE_PASSWORD == "" ]]; do stty -echo && printf "appstore password: " && read -r "$@" MAS_APPSTORE_PASSWORD && printf "\n" && printf "re-enter appstore password: " && read -r "$@" MAS_APPSTORE_PASSWORD2 && stty echo && printf "\n" && USE_MAS_APPSTORE_PASSWORD='builtin printf '"$MAS_APPSTORE_PASSWORD\n"''; done
+    
+        # only ask for password once
+        stty -echo && printf "appstore password: " && read -r "$@" MAS_APPSTORE_PASSWORD && printf "\n" && stty echo && USE_MAS_APPSTORE_PASSWORD='builtin printf '"$MAS_APPSTORE_PASSWORD\n"''
+        echo ''
+    else
+        :
+    fi
+    
+    mas signout
+    sleep 3
+
+	osascript <<EOF
+    tell application "App Store"
+        try
+    	    activate
+    	    delay 5
+    	end try
+    end tell
+    tell application "System Events"
+    	tell process "App Store"
+    		set frontmost to true
+    		delay 2
+    		### on first run when installing the appstore asks for accepting privacy policy
+    		try
+			    click button 2 of UI element 1 of sheet 1 of window 1
+			    #click button "Weiter" of UI element 1 of sheet 1 of window 1
+			    delay 3
+		    end try
+		    ### login
+    		click menu item 15 of menu "Store" of menu bar item "Store" of menu bar 1
+    		#click menu item "Anmelden" of menu "Store" of menu bar item "Store" of menu bar 1
+    		delay 2
+    		tell application "System Events" to keystroke "$MAS_APPLE_ID"
+    		delay 2
+    		tell application "System Events" to keystroke return
+    		delay 2
+    		tell application "System Events" to keystroke "$MAS_APPSTORE_PASSWORD"
+    		delay 2
+    		tell application "System Events" to keystroke return
+    	end tell
+    end tell
+    
+    tell application "App Store"
+        try
+            delay 10
+    	    quit
+    	end try
+    end tell
+    
+EOF
+
+}
+
+
 install_mas_apps() {
     readonly local mas_apps=('tweetbot2=557168941','tweetbot3=1384080005', 'xcode=497799835')
 
-    mas signin "${mas_email}" "${mas_password}"
+    #mas signin "${mas_email}" "${mas_password}"
+    mas_login_applescript
 
     for app in "${mas_apps[@]}"; do
         local app_id="${app#*=}"
