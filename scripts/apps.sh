@@ -133,8 +133,8 @@ EOF
 install_mas_apps() {
     readonly local mas_apps=('tweetbot2=557168941','tweetbot3=1384080005', 'xcode=497799835')
 
-    #mas signin "${mas_email}" "${mas_password}"
-    mas_login_applescript
+    mas signin "${mas_email}" "${mas_password}"
+    #mas_login_applescript
 
     for app in "${mas_apps[@]}"; do
         local app_id="${app#*=}"

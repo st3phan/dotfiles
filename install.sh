@@ -20,7 +20,7 @@ run_install_dotfiles() {
     # Apps
     install_brew_apps
     install_mas_apps
-    install_cask_apps
+    #install_cask_apps
     
     #sudo_askpass_del
     killall caffeinate # computer can go back to sleep
