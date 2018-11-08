@@ -14,12 +14,12 @@ run_install_dotfiles() {
     update_system
 
     # Environment
-    install_brew
-    install_node
+    #install_brew
+    #install_node
 
     # Apps
     install_brew_apps
-    install_mas_apps
+    #install_mas_apps
     #install_cask_apps
     
     #sudo_askpass_del
