@@ -10,7 +10,7 @@ run_install_dotfiles() {
 
     # Setup
     initial_setup
-    ask_details
+    #ask_details
     update_system
 
     # Environment
