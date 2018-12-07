@@ -1,8 +1,12 @@
 # Stephan's dotfiles
 
+### Mac App Store
+
+Login in to the Mac App Store
+
 ### Install Xcode
 
-First, manually install Xcode from the Mac App Store.
+Manually install Xcode from the Mac App Store.
 
 ### Install everything
 ```

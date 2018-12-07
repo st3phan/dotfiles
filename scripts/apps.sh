@@ -36,11 +36,13 @@ install_cask_apps() {
     brew cask install slack
     brew cask install soundcleod
     brew cask install sourcetree
+    brew cask install spectacle
     brew cask install spotify
     brew cask install spotify-notifications
     brew cask install stack
     brew cask install studio-3t
     brew cask install telegram
+    brew cask install textexpander
     brew cask install transmission
     brew cask install tripmode
     brew cask install virtualbox
@@ -48,7 +50,9 @@ install_cask_apps() {
     brew cask install visual-studio-code
     brew cask install vlc
     brew cask install whatsapp
+    brew cask install yarn
     brew cask install zeplin
+    brew cask install zsh
 
     # fonts
     brew tap homebrew/cask-fonts
