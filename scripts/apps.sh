@@ -23,6 +23,7 @@ install_cask_apps() {
     brew cask install firefox
     brew cask install flixtools
     brew cask install flux
+    brew cask install gimp
     brew cask install google-chrome
     brew cask install handbrake
     brew cask install iterm2
