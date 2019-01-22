@@ -15,7 +15,6 @@ install_cask_apps() {
     brew cask install cryptobridge
     brew cask install docker
     brew cask install dropbox
-    brew cask install duplicate-annihilator
     brew cask install evernote
     brew cask install expressvpn
     brew cask install fantastical
