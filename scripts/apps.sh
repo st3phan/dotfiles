@@ -31,6 +31,7 @@ install_cask_apps() {
     brew cask install mamp
     brew cask install mp4tools
     brew cask install musescore
+    brew cask install postman
     brew cask install powerphotos
     brew cask install sketch
     brew cask install skype

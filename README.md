@@ -1,5 +1,9 @@
 # Stephan's dotfiles
 
+### Todo
+
+Script ohmyzsh! plugins (git, nvm-zsh)
+
 ### Mac App Store
 
 Login in to the Mac App Store
