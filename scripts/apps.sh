@@ -51,6 +51,7 @@ install_cask_apps() {
     brew cask install virtualbox-extension-pack
     brew cask install visual-studio-code
     brew cask install vlc
+    brew cask install webstorm
     brew cask install whatsapp
     brew cask install yarn
     brew cask install zeplin
